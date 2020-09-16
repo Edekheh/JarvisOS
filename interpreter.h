@@ -1,6 +1,6 @@
 #include "procedures.h"
-#include <string.h>
 #include <stdlib.h>
+#include <Arduino.h>
 //#include <Arduino.h>
 //#include <cstdio>
 
