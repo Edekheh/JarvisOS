@@ -16,19 +16,13 @@ void loop() {
   // put your main code here, to run repeatedly:
   while(Serial.available()>0) {
     str=Serial.readString();
-    Serial.println("reading...");
   }
   if(str[0]-48>-1 && str[0]-48<10)  {
-    Serial.println("beka");
     menu(str[0]-48,str);
-    str[0]="";
-  //  Serial.println("working");
-  //}
-  //else if(str[0]!="") {
-   // menu(9,str);
+    str[0]='x';
   }
-  //else  {
-  //  Serial.println(str);
-  //  str="";
-  //}
+  else if(str.length()>2) {
+    menu(9,str);
+    str="x";
+  }
 }

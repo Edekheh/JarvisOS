@@ -1,8 +1,11 @@
 #include <Arduino.h>
 #include "interpreter.h"
-#include "oledDisplay.h"
+#include <SPI.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+void setUpOledDisplay(); 
 void mainMenu(int,String);
 void menu1(int,String);
 void menu2(int,String);
 extern void (*menu)(int,String);
-void setUpOledDisplay();

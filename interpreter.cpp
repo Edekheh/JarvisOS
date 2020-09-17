@@ -1,7 +1,7 @@
 #include "interpreter.h"
 
 #define DELIM " \t\r\n\a"
-#define BUFFER 32
+#define BUFFER 64
 
 char** parse(char line[]){
 
@@ -34,7 +34,7 @@ int interpreter(char input[]){
     
     char **tokens;
     tokens=parse(input);
-  //Serial.println(tokens[0]);
+    Serial.println(tokens[0]);
     if(tokens==NULL)
       return -2;
     else if(!strcmp(tokens[0],"G0"))
