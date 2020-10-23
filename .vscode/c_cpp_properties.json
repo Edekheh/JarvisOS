@@ -3,6 +3,7 @@
         {
             "name": "Win32",
             "includePath": [
+                "C:\\Users\\dawid\\Documents\\Arduino\\libraries\\SD\\src",
                 "C:\\Users\\dawid\\Documents\\Arduino\\libraries\\Adafruit_SSD1306",
                 "C:\\Users\\dawid\\Documents\\Arduino\\libraries\\Adafruit_GFX_Library",
                 "C:\\Program Files (x86)\\Arduino\\tools\\**",

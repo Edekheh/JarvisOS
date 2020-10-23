@@ -1,7 +1,7 @@
 #include "interpreter.h"
 
 #define DELIM " \t\r\n\a"
-#define BUFFER 64
+#define BUFFER 32
 
 char** parse(char line[]){
 

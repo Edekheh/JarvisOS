@@ -40,6 +40,8 @@ void drawMainMenu()
     display.print("1. Commands mode");
     display.setCursor(0, 8 * 4);
     display.print("2. Joystick mode");
+    display.setCursor(0, 8 * 5);
+    display.print("3. SD card mode");
     display.display();
 }
 
@@ -49,23 +51,33 @@ void mainMenu(int i, String str)
     Serial.println("Choose program mode : ");
     Serial.println("1. Commands mode");
     Serial.println("2. Joystick mode");
+    Serial.println("2. Joystick mode");
+    Serial.println("3. SD card mode");
     /*  */
     drawMainMenu();
     if (i == 1)
     {
-        //Serial.println("dzaaaaaaaaaaaaaaaaaaa");
         menu = menu1;
         display.clearDisplay();
     }
     else if (i == 2)
     {
         menu = menu2;
-        //  display.clearDisplay();
-
-        //Serial.println("dzaaaaaaaaaaaaaaaaaaa2");
+        display.clearDisplay();
+    }
+    else if (i == 3)
+    {
+        menu = menu2;
+        display.clearDisplay();
     }
 }
 
+/*String readNameFilesFromSD(int i)  {
+    String name;
+    name = getFileName(i);
+    return name;
+}*/
+//^^ idk maybe will be used later
 void drawMenu1()
 {
     display.clearDisplay();
@@ -78,6 +90,52 @@ void drawMenu1()
     display.setTextSize(1);
     display.setCursor(0, 8 * 4);
     display.print("   INPUT ANYTHING");
+    display.display();
+}
+
+void drawMenu2()    {
+    display.clearDisplay();
+    display.setCursor(0, 0);
+    display.print("Welcome in JarvisOs!");
+    display.setCursor(0, 8);
+    display.print("~~~~~~~~~~~~~~~~~~~~");
+    display.setCursor(0, 8 * 2);
+    display.print("  SD card files :  ");
+    display.setTextSize(1);
+    display.setCursor(0, 8 * 3);
+    display.print(getFileName(0));
+    display.setCursor(0,8*4);
+    display.print(getFileName(1));
+    display.setCursor(0,8*5);
+    display.print(getFileName(2));
+    display.setCursor(0,8*6);
+    display.print(getFileName(3));
+    display.setCursor(0,8*7);
+    display.print(getFileName(4));
+    display.display();
+}
+
+void drawFoldersInSD()    {
+    int folderNumber=getFolderNumber();
+    display.clearDisplay();
+    display.setCursor(0,0);
+    display.print("Folder names : ");
+    for(int i=1;i<folderNumber;i++) {
+        display.setCursor(0,8*i);
+        display.print(getFolderName(i-1));
+    }
+    display.display();
+}
+
+void drawFilesInSD(int i)    {
+    int fileNumber=getFileNumber(i);
+    display.clearDisplay();
+    display.setCursor(0,0);
+    display.print("File names :");
+    for(int i=1;i<fileNumber;i++)   {
+        display.setCursor(0,8*i);
+        display.print(getFileName(i-1));
+    }
     display.display();
 }
 
@@ -96,7 +154,7 @@ void menu1(int i, String str)
     if (i == 0)
         menu = mainMenu;
 
-    char *input = new char[60];
+    char *input = new char[40];
     str.toCharArray(input, str.length());
     Serial.println(str);
     if (interpreter(input) == -1)
@@ -104,4 +162,8 @@ void menu1(int i, String str)
 }
 void menu2(int i, String str)
 {
+}
+void menu3(int i, String str)
+{
+    drawFoldersInSD();   
 }

@@ -2,6 +2,10 @@
 
 File myFile;
 
+String getFileName(int i)   {
+    
+}
+
 void initializeSD() {
     Serial.print("Initializing SD card...");
     if (!SD.begin(10)) {
